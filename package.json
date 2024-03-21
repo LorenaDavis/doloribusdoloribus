@@ -1,0 +1,43 @@
+{
+  "name": "doloribusdoloribus",
+  "version": "1.0.0",
+  "description": "3D projection ",
+  "keywords": [
+    "occaecati",
+    "quia",
+    "3D",
+    "labore",
+    "amet",
+    "visualization"
+  ],
+  "author": "LonnyDonnelly",
+  "license": "BSD-3-Clause",
+  "main": "build/d3-3d.js",
+  "jsnext:main": "index",
+  "homepage": "https://github.com/LorenaDavis/doloribusdoloribus.git",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LorenaDavis/doloribusdoloribus.git"
+  },
+  "scripts": {
+    "pretest": "rm -rf build && mkdir build && rollup -f umd -n d3 -o build/d3-3d.js -- index.js",
+    "test": "tape 'test/**/*-test.js' | tap-spec",
+    "prepublish": "npm run test && uglifyjs build/d3-3d.js -c -m -o build/d3-3d.min.js",
+    "postpublish": "zip -j build/d3-3d.zip -- LICENSE README.md build/d3-3d.js build/d3-3d.min.js"
+  },
+  "devDependencies": {
+    "eslint": "^3.19.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.3.0",
+    "eslint-plugin-node": "^4.2.2",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "rollup": "0.41",
+    "tap-spec": "^4.1.1",
+    "tape": "4",
+    "uglify-js": "3"
+  },
+  "directories": {
+    "test": "test"
+  }
+}
